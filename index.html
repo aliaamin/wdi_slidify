@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>World Development Indicators</title>
+  <meta charset="utf-8">
+  <meta name="description" content="World Development Indicators">
+  <meta name="author" content="aamin">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>World Development Indicators</h1>
+    <h2>An analysis of the relationship between the different indicators in the area of science and technology.</h2>
+    <p>aamin<br/>6th May 2015</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The World Development Indicators is the primary World Bank collection of development indicators, compiled from officially-recognized international sources. It presents the most current and accurate global development data available, and includes national, regional and global estimates.</p>
+
+<p>This document presents the relationships between World Development Indicators in the field of Science and Technology.</p>
+
+<p>The dataset is retrieved from <a href="http://wdi.worldbank.org/table/5.13">World Development Indicators 2015, Last updated 14/04/2015</a></p>
+
+<p>The Shiny app can be found <a href="https://aamin.shinyapps.io/scienceandtechnology/">here</a>.</p>
+
+<p>Source code can be found in <a href="https://aamin">Github</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The data consists of 227 rows, of 12 variables: country/region, number of researchers, number of technicians, numbers of journal articles produced, R&amp;D expenditures (in %GDP), R&amp;D expenditures (in millions $), % of manufactured export, IP receipts, IP payments, total patents resident and non resident, and total trademark.</p>
+
+<p>Data processing consist of several steps:</p>
+
+<ul>
+<li>Data clean up: assign column names, remove foot notes at the end of the data file.</li>
+<li>Format each column into the correct data type (string or numeric)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Dataset (part 2)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>## &#39;data.frame&#39;:    320 obs. of  12 variables:
+##  $ country                            : chr  &quot;Afghanistan&quot; &quot;Albania&quot; &quot;Algeria&quot; &quot;American Samoa&quot; ...
+##  $ no_researchers_2005                : num  NA 22 27 17 NA 90 NA 5 NA NA ...
+##  $ no_technicians_2005                : num  NA 57 52 NA NA 62 NA 45 NA NA ...
+##  $ no_journals_2011                   : num  137 72 121 NA 3 122 2 83 47 NA ...
+##  $ rd_expenditures_percent_gdp_2005   : num  NA 0.15 0.07 NA NA NA NA 0.65 0.27 NA ...
+##  $ rd_expenditures_in_mdollars_2013   : num  NA 85 57 NA NA NA 2 43 115 39 ...
+##  $ percent_of_manufactured_export_2013: num  NA 0.5 0.2 NA NA NA 0 9.8 2.9 10.2 ...
+##  $ ip_receipts_mdollar_2013           : num  2 3 3 NA NA NA NA 18 NA 2 ...
+##  $ ip_payments_mdollar_2013           : num  89 45 26 NA NA 30 3 35 NA 109 ...
+##  $ total_patent_resident_2013         : num  NA 63 26 NA NA NA NA 92 28 NA ...
+##  $ total_patent_nonresident_2013      : num  NA 74 107 NA NA NA 105 76 96 NA ...
+##  $ total_trademark_2013               : num  NA 75 79 NA 129 NA 137 145 101 NA ...
+## NULL
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What the application looks like</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src = 'assets/img/World_Development_Indicators.png' width="80%"></img></p>
+
+<p>Follow the simple steps on the left side: a) select the indicators for X and Y axis and b) select region/country of interest.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Dataset'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Dataset (part 2)'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='What the application looks like'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

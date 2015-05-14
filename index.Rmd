@@ -1,0 +1,73 @@
+---
+title       : World Development Indicators 
+subtitle    : An analysis of the relationship between the different indicators in the area of science and technology.
+author      : aamin
+job         : 6th May 2015
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn      #  tomorrow
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+The World Development Indicators is the primary World Bank collection of development indicators, compiled from officially-recognized international sources. It presents the most current and accurate global development data available, and includes national, regional and global estimates.
+
+This document presents the relationships between World Development Indicators in the field of Science and Technology.
+
+The dataset is retrieved from [World Development Indicators 2015, Last updated 14/04/2015](http://wdi.worldbank.org/table/5.13)
+
+The Shiny app can be found [here](https://aamin.shinyapps.io/scienceandtechnology/).
+
+Source code can be found in [Github] (https://aamin)
+
+--- .class #id 
+
+## Dataset
+
+The data consists of 320 rows, of 12 variables: country/region, number of researchers, number of technicians, numbers of journal articles produced, R&D expenditures (in %GDP), R&D expenditures (in millions $), % of manufactured export, IP receipts, IP payments, total patents resident and non resident, and total trademark.
+
+Data processing consist of several steps:
+
+* Data clean up: assign column names, remove foot notes at the end of the data file.
+* Format each column into the correct data type (string or numeric)
+
+--- .class #id 
+
+## Dataset (part 2)
+
+```{r echo=FALSE}
+    # load data and provide the correct format
+        df <- read.csv("../data/5.13_Science_and_technology.csv", na.strings = c(".."), header=TRUE,sep=",")
+
+        df$country <- as.character(df$country)        
+        df$no_researchers_2005 <- as.numeric(df$no_researchers_2005)
+        df$no_technicians_2005 <- as.numeric(df$no_technicians_2005)
+        df$no_journals_2011 <- as.numeric(df$no_journals_2011)
+        df$rd_expenditures_percent_gdp_2005 <- as.numeric(df$rd_expenditures_percent_gdp_2005)
+        df$rd_expenditures_in_mdollars_2013 <- as.numeric(df$rd_expenditures_in_mdollars_2013)
+        df$percent_of_manufactured_export_2013 <- as.numeric(df$percent_of_manufactured_export_2013)
+        df$ip_receipts_mdollar_2013 <- as.numeric(df$ip_receipts_mdollar_2013)
+        df$ip_payments_mdollar_2013 <- as.numeric(df$ip_payments_mdollar_2013)
+        df$total_patent_resident_2013 <- as.numeric(df$total_patent_resident_2013)
+        df$total_patent_nonresident_2013 <- as.numeric(df$total_patent_nonresident_2013)
+        df$total_trademark_2013 <- as.numeric(df$total_trademark_2013)
+        
+        print(str(df))
+
+
+```
+
+
+--- .class #id 
+
+## What the application looks like
+
+<img src = 'assets/img/World_Development_Indicators.png' width="80%"></img>
+
+Follow the simple steps on the left side: a) select the indicators for X and Y axis and b) select region/country of interest.
+
+
+
